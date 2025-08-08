@@ -5,7 +5,6 @@ use App\Service\ErrorHandler;
 use AttributeRouter\Router;
 use DI\Container;
 
-date_default_timezone_set('Asia/Baku');
 ini_set('display_errors', 'off');
 error_reporting(0);
 
