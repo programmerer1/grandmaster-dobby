@@ -6,7 +6,7 @@ namespace App\Controller;
 
 use AttributeRouter\Route;
 use App\Service\Env;
-use App\Service\PromtAction;
+use App\Service\PromptAction;
 use App\Service\Validator;
 use App\Service\View;
 
@@ -17,7 +17,7 @@ class HomeController
     public function __construct(
         public readonly Env $env,
         public readonly Validator $validator,
-        public readonly PromtAction $promtAction
+        public readonly PromptAction $promptAction
     ) {}
 
     #[Route(path: '', methods: ['GET'], name: 'home')]
@@ -35,6 +35,6 @@ class HomeController
         $this->body = file_get_contents('php://input');
         $this->body = json_decode($this->body, true);
         $this->validator->validateBody($this->body);
-        $this->promtAction->processingPromtCommand($this->body);
+        $this->promptAction->processingPromptCommand($this->body);
     }
 }

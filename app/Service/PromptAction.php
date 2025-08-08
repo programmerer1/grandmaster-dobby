@@ -6,7 +6,7 @@ namespace App\Service;
 
 use \DateTimeImmutable;
 
-class PromtAction
+class PromptAction
 {
     public readonly DateTimeImmutable $date;
     public readonly Response $response;
@@ -21,7 +21,7 @@ class PromtAction
         $this->env = $env;
     }
 
-    public function processingPromtCommand(array $body)
+    public function processingPromptCommand(array $body)
     {
         $answer = $this->fireworksApi->send($this->env->env['DEFAULT_API_KEY'], $body);
         $this->response->send(message: $answer);
